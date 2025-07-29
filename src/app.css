@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* Media Library Components */
+.media-card {
+	@apply bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden transition-all duration-200 hover:shadow-md hover:border-gray-300;
+}
+
+.media-preview {
+	@apply relative aspect-square overflow-hidden bg-gray-100;
+}
+
+.media-overlay {
+	@apply absolute inset-0 bg-black/0 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:bg-black/40 transition-all duration-200;
+}
+
+.action-btn {
+	@apply p-2 bg-white text-gray-700 rounded-full shadow-md hover:bg-gray-50 hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* Filter Button Styles */
+.filter-btn {
+	@apply px-3 py-2 text-sm font-medium rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 shadow-sm;
+}
+
+.filter-btn-active {
+	@apply bg-blue-600 text-white border-blue-600 shadow-md hover:bg-blue-700 hover:border-blue-700 hover:shadow-lg;
+}
+
+.filter-btn-inactive {
+	@apply bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-gray-400 hover:shadow-md;
+}

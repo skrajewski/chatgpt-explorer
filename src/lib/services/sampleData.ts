@@ -169,12 +169,245 @@ export const sampleConversations: ProcessedConversation[] = [
 				create_time: Date.now() - 431990000
 			}
 		]
+	},
+	{
+		id: 'sample-6',
+		title: 'Logo Design Discussion',
+		create_time: Date.now() - 518400000, // 6 days ago
+		preview: 'I need feedback on this logo design I created. What do you think about the color scheme and typography?',
+		messages: [
+			{
+				id: 'msg-6-1',
+				author: { role: 'user' },
+				content: {
+					content_type: 'text',
+					parts: ['I need feedback on this logo design I created. What do you think about the color scheme and typography?']
+				},
+				create_time: Date.now() - 518400000
+			},
+			{
+				id: 'msg-6-2',
+				author: { role: 'user' },
+				content: {
+					content_type: 'multimodal_text',
+					parts: [
+						{
+							asset_pointer: 'file-sample-logo-design-1'
+						}
+					]
+				},
+				create_time: Date.now() - 518390000
+			},
+			{
+				id: 'msg-6-3',
+				author: { role: 'assistant' },
+				content: {
+					content_type: 'text',
+					parts: ['This is a great start for your logo design! I really like several aspects:\n\n**Strengths:**\n- The color palette is modern and professional\n- The typography is clean and readable\n- Good balance between text and graphic elements\n- The overall composition feels well-structured\n\n**Suggestions for improvement:**\n- Consider increasing the contrast slightly for better accessibility\n- The logo might benefit from a simplified version for smaller applications\n- Test how it looks in grayscale to ensure it works in single-color applications\n\nWhat industry or company is this logo for? That context would help me provide more specific feedback on whether the style matches your brand identity.']
+				},
+				create_time: Date.now() - 518380000
+			},
+			{
+				id: 'msg-6-4',
+				author: { role: 'user' },
+				content: {
+					content_type: 'text',
+					parts: ['This is for a tech startup focused on sustainable energy solutions. They want something modern but also conveying trust and environmental consciousness.']
+				},
+				create_time: Date.now() - 518370000
+			},
+			{
+				id: 'msg-6-5',
+				author: { role: 'assistant' },
+				content: {
+					content_type: 'text',
+					parts: ['Perfect! For a sustainable energy tech startup, your design choices make even more sense now:\n\n**Aligned with brand goals:**\n- The green tones naturally convey environmental consciousness\n- The clean, modern typography suggests innovation and forward-thinking\n- The professional appearance builds trust\n\n**Additional recommendations for this sector:**\n- Consider incorporating subtle geometric elements that could represent solar panels, wind patterns, or energy flow\n- The logo should work well on both light and dark backgrounds (important for tech presentations)\n- Make sure it scales down well for mobile app icons and social media profiles\n- Test it alongside other sustainable tech companies to ensure it stands out\n\n**Technical considerations:**\n- Ensure you have vector versions (.SVG, .AI) for scalability\n- Create variations: full logo, icon only, horizontal layout\n- Consider how it looks when embossed or printed in single color\n\nThis logo has strong potential for your target market! The balance of professionalism and environmental awareness is exactly what sustainable tech companies need.']
+				},
+				create_time: Date.now() - 518360000
+			}
+		]
+	},
+	{
+		id: 'sample-7',
+		title: 'Website Mockup Review',
+		create_time: Date.now() - 604800000, // 7 days ago
+		preview: 'Here\'s the homepage mockup for the new e-commerce site. I\'d love your thoughts on the layout and user experience flow.',
+		messages: [
+			{
+				id: 'msg-7-1',
+				author: { role: 'user' },
+				content: {
+					content_type: 'text',
+					parts: ['Here\'s the homepage mockup for the new e-commerce site. I\'d love your thoughts on the layout and user experience flow.']
+				},
+				create_time: Date.now() - 604800000
+			},
+			{
+				id: 'msg-7-2',
+				author: { role: 'user' },
+				content: {
+					content_type: 'multimodal_text',
+					parts: [
+						{
+							asset_pointer: 'file-sample-homepage-mockup-2'
+						}
+					]
+				},
+				create_time: Date.now() - 604790000
+			},
+			{
+				id: 'msg-7-3',
+				author: { role: 'assistant' },
+				content: {
+					content_type: 'text',
+					parts: ['This is an excellent homepage mockup! You\'ve created a clean, modern design that follows e-commerce best practices. Here\'s my detailed analysis:\n\n**Strong Points:**\n✅ Clear hierarchy with prominent hero section\n✅ Good use of whitespace - doesn\'t feel cluttered\n✅ Trust indicators well-positioned (reviews, security badges)\n✅ Mobile-first design approach is evident\n✅ Call-to-action buttons are prominent and well-contrasted\n\n**User Experience Flow:**\n- The navigation is intuitive and follows expected patterns\n- Product categories are clearly visible\n- Search functionality is prominently placed\n- The flow from hero → categories → featured products works well\n\n**Suggestions for Enhancement:**\n1. **Above the fold:** Consider adding a value proposition headline in the hero section\n2. **Social proof:** The testimonials section could benefit from photos\n3. **Loading performance:** Optimize hero image for faster loading\n4. **Accessibility:** Ensure color contrast ratios meet WCAG guidelines\n5. **Trust signals:** Add more payment method icons near checkout areas\n\n**Conversion Optimization Ideas:**\n- A/B test the CTA button colors\n- Consider adding urgency elements (limited time offers)\n- Add a live chat widget for customer support\n\nOverall, this mockup shows a strong understanding of e-commerce UX principles. The layout is professional and user-friendly!']
+				},
+				create_time: Date.now() - 604780000
+			},
+			{
+				id: 'msg-7-4',
+				author: { role: 'user' },
+				content: {
+					content_type: 'text',
+					parts: ['Thank you! This is really helpful feedback. What specific color combinations would you recommend for the CTA buttons to test?']
+				},
+				create_time: Date.now() - 604770000
+			},
+			{
+				id: 'msg-7-5',
+				author: { role: 'assistant' },
+				content: {
+					content_type: 'text',
+					parts: ['Great question! Here are some high-converting CTA button color combinations to A/B test:\n\n**Primary Recommendations:**\n1. **Orange (#FF6B35)** - Creates urgency, high visibility\n2. **Green (#28A745)** - Associated with "go" and positive action\n3. **Red (#DC3545)** - High contrast, attention-grabbing\n4. **Purple (#6F42C1)** - Modern, premium feel\n\n**Testing Strategy:**\n- **Current vs. Orange:** Your current blue vs. bright orange\n- **Warm vs. Cool:** Orange vs. your current blue\n- **Bold vs. Subtle:** High contrast red vs. muted green\n\n**Background Context Matters:**\n- On white backgrounds: Orange and red perform well\n- On light gray: Purple and green stand out\n- With your current color scheme: Orange would create the highest contrast\n\n**Additional Testing Variables:**\n- Button size (try 20% larger)\n- Text: "Shop Now" vs. "Browse Products" vs. "Get Started"\n- Shape: Rounded corners vs. sharp edges\n- Drop shadow vs. flat design\n\n**Pro Tip:** Test one variable at a time for clean data. Start with the orange (#FF6B35) against your current blue - this typically shows a 15-25% improvement in click-through rates for e-commerce sites.\n\nRemember to run tests for at least 2 weeks to account for different shopping patterns!']
+				},
+				create_time: Date.now() - 604760000
+			}
+		]
 	}
 ];
+
+/**
+ * Creates sample media files for testing the Media Library
+ */
+async function createSampleMediaFiles(): Promise<Map<string, string>> {
+	const mediaFiles = new Map<string, string>();
+	
+	// Create sample images as colored canvases
+	const canvas1 = document.createElement('canvas');
+	canvas1.width = 800;
+	canvas1.height = 600;
+	const ctx1 = canvas1.getContext('2d')!;
+	
+	// Logo design mockup - gradient background with geometric shapes
+	const gradient1 = ctx1.createLinearGradient(0, 0, 800, 600);
+	gradient1.addColorStop(0, '#4CAF50');
+	gradient1.addColorStop(1, '#2E7D32');
+	ctx1.fillStyle = gradient1;
+	ctx1.fillRect(0, 0, 800, 600);
+	
+	// Add some geometric shapes to simulate a logo
+	ctx1.fillStyle = '#FFFFFF';
+	ctx1.fillRect(300, 200, 200, 100);
+	ctx1.beginPath();
+	ctx1.arc(400, 350, 50, 0, 2 * Math.PI);
+	ctx1.fill();
+	
+	// Add text
+	ctx1.fillStyle = '#1B5E20';
+	ctx1.font = 'bold 24px Arial';
+	ctx1.textAlign = 'center';
+	ctx1.fillText('SAMPLE LOGO DESIGN', 400, 250);
+	ctx1.fillText('EcoTech Solutions', 400, 280);
+	
+	// Convert first canvas to blob URL
+	const blob1 = await new Promise<Blob | null>((resolve) => {
+		canvas1.toBlob(resolve);
+	});
+	if (blob1) {
+		const url1 = URL.createObjectURL(blob1);
+		mediaFiles.set('sample-6/file-sample-logo-design-1.png', url1);
+	}
+	
+	// Create second sample image
+	const canvas2 = document.createElement('canvas');
+	canvas2.width = 1200;
+	canvas2.height = 1800;
+	const ctx2 = canvas2.getContext('2d')!;
+	
+	// Website mockup - simulate a webpage layout
+	ctx2.fillStyle = '#F5F5F5';
+	ctx2.fillRect(0, 0, 1200, 1800);
+	
+	// Header
+	ctx2.fillStyle = '#FFFFFF';
+	ctx2.fillRect(0, 0, 1200, 80);
+	ctx2.fillStyle = '#333333';
+	ctx2.font = 'bold 20px Arial';
+	ctx2.fillText('E-Commerce Store', 50, 50);
+	
+	// Hero section
+	ctx2.fillStyle = '#2196F3';
+	ctx2.fillRect(0, 80, 1200, 400);
+	ctx2.fillStyle = '#FFFFFF';
+	ctx2.font = 'bold 36px Arial';
+	ctx2.textAlign = 'center';
+	ctx2.fillText('Welcome to Our Store', 600, 250);
+	ctx2.font = '18px Arial';
+	ctx2.fillText('Find the best products at amazing prices', 600, 300);
+	
+	// CTA Button
+	ctx2.fillStyle = '#FF6B35';
+	ctx2.fillRect(500, 320, 200, 50);
+	ctx2.fillStyle = '#FFFFFF';
+	ctx2.font = 'bold 16px Arial';
+	ctx2.fillText('Shop Now', 600, 350);
+	
+	// Product grid simulation
+	ctx2.fillStyle = '#FFFFFF';
+	for (let i = 0; i < 6; i++) {
+		const x = (i % 3) * 380 + 60;
+		const y = Math.floor(i / 3) * 300 + 520;
+		ctx2.fillRect(x, y, 300, 250);
+		ctx2.strokeStyle = '#E0E0E0';
+		ctx2.strokeRect(x, y, 300, 250);
+		
+		// Simulate product image
+		ctx2.fillStyle = '#EEEEEE';
+		ctx2.fillRect(x + 10, y + 10, 280, 180);
+		
+		// Product title
+		ctx2.fillStyle = '#333333';
+		ctx2.font = '14px Arial';
+		ctx2.textAlign = 'left';
+		ctx2.fillText(`Product ${i + 1}`, x + 15, y + 210);
+		ctx2.fillText(`$${(Math.random() * 100 + 20).toFixed(2)}`, x + 15, y + 230);
+	}
+	
+	// Convert second canvas to blob URL
+	const blob2 = await new Promise<Blob | null>((resolve) => {
+		canvas2.toBlob(resolve);
+	});
+	if (blob2) {
+		const url2 = URL.createObjectURL(blob2);
+		mediaFiles.set('sample-7/file-sample-homepage-mockup-2.jpg', url2);
+	}
+	
+	return mediaFiles;
+}
 
 /**
  * Generates sample data for testing the app
  */
 export function getSampleData(): ProcessedConversation[] {
 	return sampleConversations;
+}
+
+/**
+ * Generates sample data with media files for testing the Media Library
+ */
+export async function getSampleDataWithMedia(): Promise<{ conversations: ProcessedConversation[], mediaFiles: Map<string, string> }> {
+	return {
+		conversations: sampleConversations,
+		mediaFiles: await createSampleMediaFiles()
+	};
 }

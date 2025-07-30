@@ -201,6 +201,10 @@ export class FileProcessor {
 		return new Map(this.mediaFiles);
 	}
 
+	addMediaFile(path: string, url: string) {
+		this.mediaFiles.set(path, url);
+	}
+
 	cleanup() {
 		// Cleanup blob URLs to free memory
 		for (const url of this.mediaFiles.values()) {

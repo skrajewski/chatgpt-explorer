@@ -7,7 +7,7 @@
 	import HelpModal from './HelpModal.svelte';
 	import { FileProcessor } from '../services/fileProcessor.js';
 	import { SearchService } from '../services/searchService.js';
-	import { getSampleData } from '../services/sampleData.js';
+	import { getSampleData, getSampleDataWithMedia } from '../services/sampleData.js';
 	import type { ProcessedConversation, AppState } from '../types.js';
 
 	let appState = $state<AppState>({
@@ -48,13 +48,18 @@
 		}
 	}
 
-	function handleSampleDataSelected() {
+	async function handleSampleDataSelected() {
 		appState.isLoading = true;
 		appState.error = null;
 
 		try {
-			const conversations = getSampleData();
-			appState.conversations = conversations.sort((a, b) => b.create_time - a.create_time);
+			const sampleData = await getSampleDataWithMedia();
+			appState.conversations = sampleData.conversations.sort((a, b) => b.create_time - a.create_time);
+
+			// Load media files into the file processor
+			for (const [path, url] of sampleData.mediaFiles.entries()) {
+				fileProcessor.addMediaFile(path, url);
+			}
 
 			// Build search index
 			searchService.buildIndex(appState.conversations);

@@ -6,6 +6,8 @@
 
 A fast, offline-first Progressive Web Application (PWA) that allows you to browse, search, and explore your ChatGPT conversation history locally in your browser. All processing happens client-side for maximum privacy and security.
 
+→ https://chatgpt-explorer.netlify.app
+
 ![App Preview](app.png)
 
 ## 🎯 Purpose
@@ -81,9 +83,10 @@ Once loaded, the app works completely offline thanks to PWA caching.
 
 ## 🚀 Quick Start
 
+
 ### For Users
 
-1. Visit the hosted application at [your-domain.com]
+1. Visit the hosted application at <https://chatgpt-explorer.netlify.app/>
 2. Drag and drop your ChatGPT export ZIP file
 3. Wait for processing to complete
 4. Start exploring your conversations!
@@ -93,7 +96,7 @@ Once loaded, the app works completely offline thanks to PWA caching.
 #### Prerequisites
 
 - Node.js 22+
-- npm, pnpm, or yarn
+- npm
 
 #### Installation
 

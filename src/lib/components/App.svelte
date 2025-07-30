@@ -7,7 +7,7 @@
 	import HelpModal from './HelpModal.svelte';
 	import { FileProcessor } from '../services/fileProcessor.js';
 	import { SearchService } from '../services/searchService.js';
-	import { getSampleData, getSampleDataWithMedia } from '../services/sampleData.js';
+	import { getSampleDataWithMedia } from '../services/sampleData.js';
 	import { offlineService } from '../services/offlineService.js';
 	import type { ProcessedConversation, AppState } from '../types.js';
 

@@ -47,24 +47,15 @@
 				<h1 class="text-lg font-semibold text-gray-900">ChatGPT Explorer</h1>
 			</div>
 			
-			<!-- Offline/Online Status Indicator -->
-			<div class="flex items-center space-x-1">
-				{#if isOnline}
-					<div class="flex items-center space-x-1 text-green-600">
-						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-						</svg>
-						<span class="text-xs font-medium">Online</span>
-					</div>
-				{:else}
-					<div class="flex items-center space-x-1 text-amber-600">
-						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 1v6m0 10v6m11-7h-6M7 12H1" />
-						</svg>
-						<span class="text-xs font-medium">Offline</span>
-					</div>
-				{/if}
-			</div>
+			<!-- Offline Status Indicator (only show when offline) -->
+			{#if !isOnline}
+				<div class="flex items-center space-x-1 text-amber-600">
+					<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 1v6m0 10v6m11-7h-6M7 12H1" />
+					</svg>
+					<span class="text-xs font-medium">Offline</span>
+				</div>
+			{/if}
 		</div>
 
 		<div class="flex items-center space-x-3">

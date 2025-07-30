@@ -325,7 +325,7 @@ async function createSampleMediaFiles(): Promise<Map<string, string>> {
 	});
 	if (blob1) {
 		const url1 = URL.createObjectURL(blob1);
-		mediaFiles.set('sample-6/file-sample-logo-design-1.png', url1);
+		mediaFiles.set('sample-6/file-sample-logo-design-1-Sample Logo Design.png', url1);
 	}
 	
 	// Create second sample image
@@ -389,7 +389,7 @@ async function createSampleMediaFiles(): Promise<Map<string, string>> {
 	});
 	if (blob2) {
 		const url2 = URL.createObjectURL(blob2);
-		mediaFiles.set('sample-7/file-sample-homepage-mockup-2.jpg', url2);
+		mediaFiles.set('sample-7/file-sample-homepage-mockup-2-Homepage Mockup.jpg', url2);
 	}
 	
 	return mediaFiles;

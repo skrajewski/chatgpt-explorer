@@ -93,7 +93,6 @@
 						<p>
 							<strong>Full-text search:</strong> Search through all conversation titles and message content.
 						</p>
-						<p><strong>Fuzzy matching:</strong> Find results even with typos or partial matches.</p>
 						<p><strong>Real-time results:</strong> See search results as you type.</p>
 						<p>
 							<strong>Highlighted matches:</strong> Search terms are highlighted in results and message

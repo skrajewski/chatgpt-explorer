@@ -83,7 +83,6 @@ Once loaded, the app works completely offline thanks to PWA caching.
 
 ## 🚀 Quick Start
 
-
 ### For Users
 
 1. Visit the hosted application at <https://chatgpt-explorer.netlify.app/>
@@ -110,19 +109,10 @@ npm install
 npm run dev
 ```
 
-## 🔐 Privacy & Security
-
-### Data Privacy Commitment
-
-- **No Data Transmission** - Your conversations never leave your device
-- **No Analytics** - No tracking, telemetry, or usage statistics
-- **No Storage** - Data is only kept in memory during your session
-- **Open Source** - Complete transparency in how your data is handled
-
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## ⚠️ Disclaimer
 
-This project was developed with assistance from AI tools including Claude and other language models. While thoroughly tested, please review the code and use at your own discretion. The application processes sensitive conversation data, so we recommend reviewing the source code to ensure it meets your security requirements.
+This project was developed with assistance from AI tools including Claude and other language models. I did my best to guide the tool towards solution that is both sufficient and safe. If you, however, see anything that should raise concerns, do not hesitate to raise the issue.

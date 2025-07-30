@@ -269,19 +269,17 @@
 									</video>
 								{/if}
 								
-								<!-- Overlay with actions -->
-								<div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-200 flex items-center justify-center opacity-0 group-hover:opacity-100">
-									<button 
-										onclick={() => downloadFile(file)}
-										class="bg-white text-gray-700 p-2 rounded-full shadow-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-200 transform hover:scale-105"
-										title="Download file"
-										aria-label="Download {file.filename}"
-									>
-										<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-4-4m4 4l4-4m-4-8v2"/>
-										</svg>
-									</button>
-								</div>
+								<!-- Dedicated download icon positioned in corner -->
+								<button 
+									onclick={() => downloadFile(file)}
+									class="absolute top-2 right-2 bg-white text-gray-700 p-2 rounded-full shadow-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-200 transform hover:scale-105 opacity-80 hover:opacity-100"
+									title="Download file"
+									aria-label="Download {file.filename}"
+								>
+									<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-4-4m4 4l4-4m-4-8v2"/>
+									</svg>
+								</button>
 							</div>
 							
 							<div class="p-3">

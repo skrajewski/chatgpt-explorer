@@ -125,8 +125,9 @@
 		if (selectedConversation) {
 			const index = conversations.findIndex(conv => conv.id === selectedConversation.id);
 			selectedIndex = index;
-			// Focus the conversation item if the list is focused
-			if (isListFocused && index >= 0) {
+			// Only focus the conversation item if the list is focused AND the search input is not focused
+			// This prevents stealing focus from the search input when typing
+			if (isListFocused && index >= 0 && document.activeElement !== searchInput) {
 				focusConversationItem(index);
 			}
 		} else {

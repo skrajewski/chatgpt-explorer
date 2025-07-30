@@ -95,10 +95,11 @@
 		
 		if (pathParts.length > 1) {
 			const conversationId = pathParts[0];
-			const conversation = conversations.find(c => 
-				c.id === conversationId || filepath.includes(conversationId)
-			);
-			return conversation?.title;
+			
+			// First try exact match on conversation ID
+			let conversation = conversations.find(c => c.id === conversationId);
+			
+			return conversation?.title || 'Conversation not found';
 		}
 		
 		return undefined;

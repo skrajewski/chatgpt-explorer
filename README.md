@@ -115,4 +115,4 @@ This project is licensed under the MIT License.
 
 ## ⚠️ Disclaimer
 
-This project was developed with assistance from AI tools including Claude and other language models. I did my best to guide the tool towards solution that is both sufficient and safe. If you, however, see anything that should raise concerns, do not hesitate to raise the issue.
+This project was developed with assistance from AI tools including Claude and other language models. I did my best to guide the tool towards solution that is both sufficient and safe. If you, however, see anything that should raise concerns, do not hesitate to request an issue.

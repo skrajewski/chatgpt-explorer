@@ -29,7 +29,7 @@ export class ExportService {
 	 */
 	private generateMarkdown(conversation: ProcessedConversation): string {
 		const lines: string[] = [];
-		
+
 		// Header
 		lines.push(`# ${conversation.title}`);
 		lines.push('');
@@ -43,7 +43,7 @@ export class ExportService {
 		conversation.messages.forEach((message, index) => {
 			const role = message.author.role === 'user' ? 'You' : 'Assistant';
 			const timestamp = this.formatTimestamp(message.create_time);
-			
+
 			lines.push(`## ${role} (${timestamp})`);
 			lines.push('');
 
@@ -56,7 +56,8 @@ export class ExportService {
 						lines.push(this.processTextForMarkdown(part.text));
 					}
 					if (part.image_url?.url || part.image_url) {
-						const imageUrl = typeof part.image_url === 'string' ? part.image_url : part.image_url?.url;
+						const imageUrl =
+							typeof part.image_url === 'string' ? part.image_url : part.image_url?.url;
 						lines.push(`![Image](${imageUrl})`);
 					}
 					if (part.asset_pointer) {
@@ -89,14 +90,17 @@ export class ExportService {
 	/**
 	 * Export HTML element to PDF using html2canvas and jsPDF
 	 */
-	private async exportElementToPDF(conversation: ProcessedConversation, element: HTMLElement): Promise<void> {
+	private async exportElementToPDF(
+		conversation: ProcessedConversation,
+		element: HTMLElement
+	): Promise<void> {
 		try {
 			// Create a clone of the element for PDF export
 			const clone = element.cloneNode(true) as HTMLElement;
-			
+
 			// Apply print-friendly styles
 			this.applyPrintStyles(clone);
-			
+
 			// Temporarily add to document for canvas generation
 			clone.style.position = 'absolute';
 			clone.style.left = '-9999px';
@@ -151,7 +155,7 @@ export class ExportService {
 	 */
 	private async exportTextToPDF(conversation: ProcessedConversation): Promise<void> {
 		const pdf = new jsPDF();
-		
+
 		let yPosition = 20;
 		const pageHeight = pdf.internal.pageSize.height;
 		const lineHeight = 6;
@@ -168,9 +172,13 @@ export class ExportService {
 		};
 
 		// Helper function to add wrapped text
-		const addWrappedText = (text: string, fontSize: number = 10, style: 'normal' | 'bold' = 'normal') => {
+		const addWrappedText = (
+			text: string,
+			fontSize: number = 10,
+			style: 'normal' | 'bold' = 'normal'
+		) => {
 			pdf.setFontSize(fontSize);
-			
+
 			if (style === 'bold') {
 				pdf.setFont('helvetica', 'bold');
 			} else {
@@ -179,9 +187,9 @@ export class ExportService {
 
 			const lines = pdf.splitTextToSize(text, maxWidth);
 			const textHeight = lines.length * lineHeight;
-			
+
 			checkPageBreak(textHeight);
-			
+
 			pdf.text(lines, marginLeft, yPosition);
 			yPosition += textHeight + 2;
 		};
@@ -199,7 +207,7 @@ export class ExportService {
 		conversation.messages.forEach((message, index) => {
 			const role = message.author.role === 'user' ? 'You' : 'Assistant';
 			const timestamp = this.formatTimestamp(message.create_time);
-			
+
 			// Message header
 			addWrappedText(`${role} (${timestamp})`, 12, 'bold');
 			yPosition += 2;
@@ -295,12 +303,14 @@ export class ExportService {
 	 * Sanitize filename for download
 	 */
 	private sanitizeFilename(filename: string): string {
-		return filename
-			.replace(/[^a-z0-9]/gi, '_')
-			.replace(/_+/g, '_')
-			.replace(/^_|_$/g, '')
-			.toLowerCase()
-			.substring(0, 50) || 'conversation';
+		return (
+			filename
+				.replace(/[^a-z0-9]/gi, '_')
+				.replace(/_+/g, '_')
+				.replace(/^_|_$/g, '')
+				.toLowerCase()
+				.substring(0, 50) || 'conversation'
+		);
 	}
 
 	/**
@@ -309,14 +319,14 @@ export class ExportService {
 	private downloadFile(content: string, filename: string, mimeType: string): void {
 		const blob = new Blob([content], { type: mimeType });
 		const url = URL.createObjectURL(blob);
-		
+
 		const link = document.createElement('a');
 		link.href = url;
 		link.download = filename;
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
-		
+
 		URL.revokeObjectURL(url);
 	}
 }

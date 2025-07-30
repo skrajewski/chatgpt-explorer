@@ -39,7 +39,7 @@
 	// Export functions
 	async function handleExportMarkdown() {
 		if (!conversation) return;
-		
+
 		isExporting = true;
 		try {
 			await exportService.exportToMarkdown(conversation);
@@ -52,7 +52,7 @@
 
 	async function handleExportPDF() {
 		if (!conversation) return;
-		
+
 		isExporting = true;
 		try {
 			// Try to export with styling using the messages container
@@ -79,42 +79,72 @@
 						{formatTimestamp(conversation.create_time)} • {conversation.messages.length} messages
 					</p>
 				</div>
-				
+
 				<!-- Export Actions -->
-				<div class="flex items-center gap-2 ml-4">
+				<div class="ml-4 flex items-center gap-2">
 					<button
 						type="button"
 						onclick={handleExportMarkdown}
 						disabled={isExporting}
-						class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+						class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
 						title="Export conversation to Markdown"
 					>
 						{#if isExporting}
-							<svg class="w-4 h-4 mr-2 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+							<svg
+								class="mr-2 h-4 w-4 animate-spin"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+								/>
 							</svg>
 						{:else}
-							<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+							<svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+								/>
 							</svg>
 						{/if}
 						Markdown
 					</button>
-					
+
 					<button
 						type="button"
 						onclick={handleExportPDF}
 						disabled={isExporting}
-						class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+						class="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
 						title="Export conversation to PDF"
 					>
 						{#if isExporting}
-							<svg class="w-4 h-4 mr-2 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+							<svg
+								class="mr-2 h-4 w-4 animate-spin"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+								/>
 							</svg>
 						{:else}
-							<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+							<svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+								/>
 							</svg>
 						{/if}
 						PDF
@@ -173,8 +203,8 @@
 											{/if}
 											{#if part.image_url?.url}
 												<div class="image-container">
-													<img 
-														src={part.image_url.url} 
+													<img
+														src={part.image_url.url}
 														alt=""
 														class="message-image"
 														loading="lazy"
@@ -183,8 +213,8 @@
 											{:else if part.image_url && typeof part.image_url === 'string'}
 												{#if fileProcessor.getMediaUrl(part.image_url)}
 													<div class="image-container">
-														<img 
-															src={fileProcessor.getMediaUrl(part.image_url)} 
+														<img
+															src={fileProcessor.getMediaUrl(part.image_url)}
 															alt=""
 															class="message-image"
 															loading="lazy"
@@ -200,8 +230,8 @@
 											{:else if part.asset_pointer}
 												{#if fileProcessor.getMediaUrl(part.asset_pointer)}
 													<div class="image-container">
-														<img 
-															src={fileProcessor.getMediaUrl(part.asset_pointer)} 
+														<img
+															src={fileProcessor.getMediaUrl(part.asset_pointer)}
 															alt=""
 															class="message-image"
 															loading="lazy"
@@ -210,7 +240,9 @@
 												{:else}
 													<div class="image-container">
 														<div class="image-placeholder">
-															<span class="image-placeholder-text">[Image: {part.asset_pointer}]</span>
+															<span class="image-placeholder-text"
+																>[Image: {part.asset_pointer}]</span
+															>
 														</div>
 													</div>
 												{/if}
@@ -367,7 +399,9 @@
 		max-width: 100%;
 		height: auto;
 		border-radius: 0.375rem;
-		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+		box-shadow:
+			0 1px 3px 0 rgba(0, 0, 0, 0.1),
+			0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	}
 
 	.image-placeholder {

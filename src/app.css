@@ -3,7 +3,7 @@
 
 /* Media Library Components */
 .media-card {
-	@apply bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden transition-all duration-200 hover:shadow-md hover:border-gray-300;
+	@apply overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:border-gray-300 hover:shadow-md;
 }
 
 .media-preview {
@@ -11,22 +11,22 @@
 }
 
 .media-overlay {
-	@apply absolute inset-0 bg-black/0 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:bg-black/40 transition-all duration-200;
+	@apply absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-200 group-hover:bg-black/40 group-hover:opacity-100;
 }
 
 .action-btn {
-	@apply p-2 bg-white text-gray-700 rounded-full shadow-md hover:bg-gray-50 hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+	@apply rounded-full bg-white p-2 text-gray-700 shadow-md transition-all duration-200 hover:bg-gray-50 hover:shadow-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none;
 }
 
 /* Filter Button Styles */
 .filter-btn {
-	@apply px-3 py-2 text-sm font-medium rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 shadow-sm;
+	@apply rounded-lg border px-3 py-2 text-sm font-medium shadow-sm transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 focus:outline-none;
 }
 
 .filter-btn-active {
-	@apply bg-blue-600 text-white border-blue-600 shadow-md hover:bg-blue-700 hover:border-blue-700 hover:shadow-lg;
+	@apply border-blue-600 bg-blue-600 text-white shadow-md hover:border-blue-700 hover:bg-blue-700 hover:shadow-lg;
 }
 
 .filter-btn-inactive {
-	@apply bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-gray-400 hover:shadow-md;
+	@apply border-gray-300 bg-white text-gray-700 hover:border-gray-400 hover:bg-gray-50 hover:shadow-md;
 }

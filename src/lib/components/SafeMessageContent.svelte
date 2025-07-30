@@ -228,7 +228,12 @@
 <div class="message-content {className}">
 	{#each formattedContent as part, partIndex (partIndex)}
 		{#if part.type === 'codeblock'}
-			<pre class="code-block"><code class="code-block-content"><!-- eslint-disable-next-line svelte/no-at-html-tags -->{@html highlightCode(part.content, part.language || '')}</code></pre>
+			<pre class="code-block"><code class="code-block-content"
+					><!-- eslint-disable-next-line svelte/no-at-html-tags -->{@html highlightCode(
+						part.content,
+						part.language || ''
+					)}</code
+				></pre>
 		{:else if part.type === 'text'}
 			{#each formatInlineText(part.content) as inlinePart, inlineIndex (inlineIndex)}
 				{#if inlinePart.type === 'table'}

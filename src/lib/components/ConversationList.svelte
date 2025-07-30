@@ -42,7 +42,8 @@
 	let conversationRefs: (HTMLButtonElement | null)[] = $state([]);
 
 	// Platform detection for keyboard shortcut display
-	const isMac = typeof navigator !== 'undefined' && navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+	const isMac =
+		typeof navigator !== 'undefined' && navigator.platform.toUpperCase().indexOf('MAC') >= 0;
 	const shortcutText = isMac ? '⌘K' : 'Ctrl+K';
 
 	$effect(() => {
@@ -123,7 +124,7 @@
 	// Update selectedIndex when selectedConversation changes externally
 	$effect(() => {
 		if (selectedConversation) {
-			const index = conversations.findIndex(conv => conv.id === selectedConversation.id);
+			const index = conversations.findIndex((conv) => conv.id === selectedConversation.id);
 			selectedIndex = index;
 			// Only focus the conversation item if the list is focused AND the search input is not focused
 			// This prevents stealing focus from the search input when typing
@@ -182,7 +183,7 @@
 
 	function navigateDown() {
 		if (conversations.length === 0) return;
-		
+
 		let newIndex;
 		if (selectedIndex === -1) {
 			// No conversation selected, select the first one
@@ -191,7 +192,7 @@
 			// Move to next conversation, wrap to beginning if at end
 			newIndex = selectedIndex < conversations.length - 1 ? selectedIndex + 1 : 0;
 		}
-		
+
 		selectedIndex = newIndex;
 		onConversationSelect(conversations[newIndex]);
 		ensureItemVisible(newIndex);
@@ -200,7 +201,7 @@
 
 	function navigateUp() {
 		if (conversations.length === 0) return;
-		
+
 		let newIndex;
 		if (selectedIndex === -1) {
 			// No conversation selected, select the last one
@@ -209,7 +210,7 @@
 			// Move to previous conversation, wrap to end if at beginning
 			newIndex = selectedIndex > 0 ? selectedIndex - 1 : conversations.length - 1;
 		}
-		
+
 		selectedIndex = newIndex;
 		onConversationSelect(conversations[newIndex]);
 		ensureItemVisible(newIndex);
@@ -250,8 +251,8 @@
 	}
 </script>
 
-<div 
-	class="flex h-full flex-col border-r border-gray-200 bg-gray-50" 
+<div
+	class="flex h-full flex-col border-r border-gray-200 bg-gray-50"
 	onkeydown={handleListKeyDown}
 	onfocus={handleListFocus}
 	onblur={handleListBlur}
@@ -282,15 +283,20 @@
 				class="block w-full rounded-md border border-gray-400 py-2 pr-3 pl-10 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
 			/>
 		</div>
-		
+
 		{#if onShowLibrary}
 			<button
 				type="button"
 				onclick={onShowLibrary}
-				class="w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors"
+				class="flex w-full items-center justify-center rounded-md border border-gray-300 bg-gray-100 px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
 			>
-				<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+				<svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+					/>
 				</svg>
 				View Media Library
 			</button>
@@ -331,8 +337,8 @@
 					type="button"
 					class="absolute w-full border-b border-gray-200 px-4 py-3 text-left transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-inset {selectedConversation?.id ===
 					conversation.id
-						? 'bg-blue-100 border-blue-300 border-l-4 border-l-blue-600 shadow-sm'
-						: 'bg-white hover:bg-gray-50 border-l-4 border-l-transparent hover:border-l-gray-300'}"
+						? 'border-l-4 border-blue-300 border-l-blue-600 bg-blue-100 shadow-sm'
+						: 'border-l-4 border-l-transparent bg-white hover:border-l-gray-300 hover:bg-gray-50'}"
 					style="top: {actualIndex * ITEM_HEIGHT}px; height: {ITEM_HEIGHT}px;"
 					onclick={() => onConversationSelect(conversation)}
 					onfocus={() => {
@@ -343,17 +349,29 @@
 				>
 					<div class="flex h-full flex-col justify-between">
 						<div class="mb-2">
-							<h3 class="truncate text-sm font-medium {selectedConversation?.id === conversation.id ? 'text-blue-900' : 'text-gray-900'}">
+							<h3
+								class="truncate text-sm font-medium {selectedConversation?.id === conversation.id
+									? 'text-blue-900'
+									: 'text-gray-900'}"
+							>
 								<SafeHighlight text={conversation.title} query={searchQuery} />
 							</h3>
 						</div>
 						<div class="flex-1">
-							<p class="line-clamp-2 text-xs {selectedConversation?.id === conversation.id ? 'text-blue-700' : 'text-gray-600'}">
+							<p
+								class="line-clamp-2 text-xs {selectedConversation?.id === conversation.id
+									? 'text-blue-700'
+									: 'text-gray-600'}"
+							>
 								<SafeHighlight text={getConversationPreview(conversation)} query={searchQuery} />
 							</p>
 						</div>
 						<div class="mt-2">
-							<span class="text-xs {selectedConversation?.id === conversation.id ? 'text-blue-600' : 'text-gray-500'}">
+							<span
+								class="text-xs {selectedConversation?.id === conversation.id
+									? 'text-blue-600'
+									: 'text-gray-500'}"
+							>
 								{formatDate(conversation.create_time)}
 							</span>
 						</div>

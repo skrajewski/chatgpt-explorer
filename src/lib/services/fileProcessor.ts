@@ -1,5 +1,11 @@
 import JSZip from 'jszip';
-import type { Conversation, ProcessedConversation, Message, ConversationNode, MessagePart } from '../types.js';
+import type {
+	Conversation,
+	ProcessedConversation,
+	Message,
+	ConversationNode,
+	MessagePart
+} from '../types.js';
 
 export class FileProcessor {
 	private mediaFiles = new Map<string, string>();
@@ -122,7 +128,7 @@ export class FileProcessor {
 	}
 
 	private hasValidContent(parts: (string | MessagePart)[]): boolean {
-		return parts.some(part => {
+		return parts.some((part) => {
 			if (typeof part === 'string') {
 				return part.trim() !== '';
 			} else if (part && typeof part === 'object') {
@@ -140,20 +146,18 @@ export class FileProcessor {
 				return part.text!;
 			}
 		}
-		
+
 		// If no text found, check if there are images
-		const hasImage = parts.some(part => 
-			part && typeof part === 'object' && (part.image_url || part.asset_pointer)
+		const hasImage = parts.some(
+			(part) => part && typeof part === 'object' && (part.image_url || part.asset_pointer)
 		);
-		
+
 		return hasImage ? '[Image]' : '';
 	}
 
 	private generatePreview(messages: Message[]): string {
-		const firstUserMessage = messages.find((msg) => 
-			msg && 
-			msg.author && 
-			msg.author.role === 'user'
+		const firstUserMessage = messages.find(
+			(msg) => msg && msg.author && msg.author.role === 'user'
 		);
 		if (
 			firstUserMessage &&
@@ -176,13 +180,13 @@ export class FileProcessor {
 		if (url) {
 			return url;
 		}
-		
+
 		// Handle file-service:// URL format - extract the actual file ID
 		let searchId = filename;
 		if (filename.startsWith('file-service://file-')) {
 			searchId = filename.replace('file-service://file-', 'file-');
 		}
-		
+
 		// If not found, try to find by asset pointer pattern
 		// Asset pointers are in format like "file-RJiWp9Hf7HoSUkwrarjCia"
 		// Actual files are named like "file-RJiWp9Hf7HoSUkwrarjCia-WhatsApp Image 2025-03-11 at 11.56.16.jpeg"
@@ -193,7 +197,7 @@ export class FileProcessor {
 				return blobUrl;
 			}
 		}
-		
+
 		return null;
 	}
 

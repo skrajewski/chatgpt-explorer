@@ -72,7 +72,8 @@ export function formatMessageContent(content: string): string {
 	// Handle code blocks
 	formatted = formatted.replace(
 		/```([\s\S]*?)```/g,
-		(match, code) => `<pre class="bg-gray-100 p-3 rounded-md overflow-x-auto"><code class="text-sm font-mono whitespace-pre">${code.trim()}</code></pre>`
+		(match, code) =>
+			`<pre class="bg-gray-100 p-3 rounded-md overflow-x-auto"><code class="text-sm font-mono whitespace-pre">${code.trim()}</code></pre>`
 	);
 
 	return formatted;

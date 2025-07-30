@@ -1,0 +1,21 @@
+{
+  "name": "ChatGPT Explorer",
+  "short_name": "GPT Explorer",
+  "description": "Explore and analyze ChatGPT conversations",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ]
+}

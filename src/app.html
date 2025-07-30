@@ -2,9 +2,30 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script defer data-domain="gpt-explorer.netlify.app" src="https://a.szymonkrajewski.pl/js/script.js"></script>
+
+		<!-- Favicon and App Icons -->
+		<link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.svg" />
+		<link rel="mask-icon" href="%sveltekit.assets%/favicon.svg" color="#10b981" />
+
+		<!-- Web App Manifest -->
+		<link rel="manifest" href="%sveltekit.assets%/manifest.json" />
+
+		<!-- Theme and App Metadata -->
+		<meta name="theme-color" content="#10b981" />
+		<meta name="application-name" content="ChatGPT Explorer" />
+		<meta name="apple-mobile-web-app-title" content="GPT Explorer" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+		<!-- Analytics -->
+		<script
+			defer
+			data-domain="gpt-explorer.netlify.app"
+			src="https://a.szymonkrajewski.pl/js/script.js"
+		></script>
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

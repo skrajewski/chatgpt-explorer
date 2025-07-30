@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { offlineService } from '../services/offlineService.js';
+	import { onMount } from 'svelte';
+
 	interface Props {
 		onClearData: () => void;
 		onShowHelp: () => void;
@@ -6,20 +9,62 @@
 	}
 
 	let { onClearData, onShowHelp, hasData = false }: Props = $props();
+	
+	// State for online status
+	let isOnline = $state(true);
+	
+	onMount(() => {
+		// Initialize with current status
+		isOnline = offlineService.isOnline();
+		
+		// Listen for online/offline events
+		const updateOnlineStatus = () => {
+			isOnline = offlineService.isOnline();
+		};
+		
+		window.addEventListener('online', updateOnlineStatus);
+		window.addEventListener('offline', updateOnlineStatus);
+		
+		return () => {
+			window.removeEventListener('online', updateOnlineStatus);
+			window.removeEventListener('offline', updateOnlineStatus);
+		};
+	});
 </script>
 
 <div class="border-b border-gray-200 bg-white px-4 py-3">
 	<div class="flex items-center justify-between">
-		<div class="flex items-center space-x-1">
-			<svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-				/>
-			</svg>
-			<h1 class="text-lg font-semibold text-gray-900">ChatGPT Explorer</h1>
+		<div class="flex items-center space-x-3">
+			<div class="flex items-center space-x-1">
+				<svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+					/>
+				</svg>
+				<h1 class="text-lg font-semibold text-gray-900">ChatGPT Explorer</h1>
+			</div>
+			
+			<!-- Offline/Online Status Indicator -->
+			<div class="flex items-center space-x-1">
+				{#if isOnline}
+					<div class="flex items-center space-x-1 text-green-600">
+						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+						</svg>
+						<span class="text-xs font-medium">Online</span>
+					</div>
+				{:else}
+					<div class="flex items-center space-x-1 text-amber-600">
+						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 1v6m0 10v6m11-7h-6M7 12H1" />
+						</svg>
+						<span class="text-xs font-medium">Offline</span>
+					</div>
+				{/if}
+			</div>
 		</div>
 
 		<div class="flex items-center space-x-3">

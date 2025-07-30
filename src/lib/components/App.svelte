@@ -8,6 +8,7 @@
 	import { FileProcessor } from '../services/fileProcessor.js';
 	import { SearchService } from '../services/searchService.js';
 	import { getSampleData, getSampleDataWithMedia } from '../services/sampleData.js';
+	import { offlineService } from '../services/offlineService.js';
 	import type { ProcessedConversation, AppState } from '../types.js';
 
 	let appState = $state<AppState>({
@@ -25,6 +26,44 @@
 
 	const fileProcessor = new FileProcessor();
 	const searchService = new SearchService();
+
+	// Initialize offline capabilities
+	let isOfflineReady = $state(false);
+	let isOnline = $state(true);
+
+	$effect(() => {
+		// Initialize online/offline status
+		if (typeof navigator !== 'undefined') {
+			isOnline = navigator.onLine;
+			
+			const handleOnline = () => {
+				isOnline = true;
+				offlineService.showOnlineNotification();
+			};
+			
+			const handleOffline = () => {
+				isOnline = false;
+				offlineService.showOfflineNotification();
+			};
+			
+			window.addEventListener('online', handleOnline);
+			window.addEventListener('offline', handleOffline);
+			
+			// Cleanup
+			return () => {
+				window.removeEventListener('online', handleOnline);
+				window.removeEventListener('offline', handleOffline);
+			};
+		}
+	});
+
+	$effect(() => {
+		// Preload critical assets for offline use after component mounts
+		setTimeout(async () => {
+			await offlineService.preloadCriticalAssets();
+			isOfflineReady = await offlineService.isOfflineReady();
+		}, 1000); // Delay to let the app load first
+	});
 
 	async function handleFileSelected(file: File) {
 		appState.isLoading = true;
@@ -62,6 +101,9 @@
 			for (const [path, url] of sampleData.mediaFiles.entries()) {
 				fileProcessor.addMediaFile(path, url);
 			}
+
+			// Cache sample data for offline access
+			await offlineService.cacheSampleData(sampleData.mediaFiles);
 
 			// Build search index
 			searchService.buildIndex(appState.conversations);

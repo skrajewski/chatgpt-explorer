@@ -200,7 +200,7 @@
 			Built by <a
 				href="https://szymonkrajewski.pl"
 				class="text-blue-600 underline hover:text-blue-800"
-				target="_blank">skrajewski</a
+				target="_blank">@skrajewski</a
 			>
 		</p>
 	</div>
